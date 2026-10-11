@@ -1,0 +1,52 @@
+@font-face{font-family:"Archivo Black";src:url(/fontes/ArchivoBlack-Regular.ttf) format("truetype");font-display:swap}
+:root{--tinta:#1E1C19;--papel:#F4F0E8;--suave:#5F5A52;--linha:#D8D1C4;--destaque:#E0B13A;--branco:#fff}
+*{box-sizing:border-box}
+body{margin:0;background:var(--papel);color:var(--tinta);font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+a{color:var(--tinta)}a:hover{color:var(--suave)}
+h1,h2,.logo{font-family:"Archivo Black",system-ui,sans-serif;font-weight:400;line-height:1.15}
+.oculto{position:absolute;left:-9999px}
+.topo{background:var(--tinta);color:var(--papel)}
+.topo-linha{max-width:1200px;margin:0 auto;padding:14px 16px;display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.logo{color:var(--papel);text-decoration:none;font-size:24px}
+.logo:hover{color:var(--destaque)}
+.busca{flex:1 1 260px;display:flex}
+.busca input,.busca-pagina input{width:100%;font:inherit;padding:11px 14px;border:0;border-radius:6px}
+.aleatoria{color:var(--destaque);font-weight:600;text-decoration:none}
+.aleatoria:hover{color:var(--papel)}
+.categorias{background:var(--branco);border-bottom:1px solid var(--linha);display:flex;gap:22px;padding:12px 16px;overflow-x:auto;white-space:nowrap;font-weight:500;justify-content:center}
+.categorias a{text-decoration:none}
+.conteudo{max-width:1200px;margin:0 auto;padding:24px 16px;display:flex;gap:36px;align-items:flex-start;flex-wrap:wrap}
+.principal{flex:999 1 560px;min-width:0;display:flex;flex-direction:column;gap:22px}
+.lateral{flex:1 1 300px;max-width:100%;display:flex;flex-direction:column;gap:22px}
+.migalha{font-size:14px;color:var(--suave)}
+h1{margin:0;font-size:clamp(28px,4vw,40px)}
+.intro{margin:-10px 0 0;color:var(--suave)}
+.cartao{background:var(--branco);border-radius:12px;padding:18px;display:flex;gap:22px;align-items:center;flex-wrap:wrap}
+.cartao-img{flex:0 0 300px;max-width:100%}
+.frase-img{display:block;width:100%;height:auto;border-radius:8px;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+.cartao-info{flex:1 1 240px;display:flex;flex-direction:column;gap:14px}
+.rotulo{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--suave);text-decoration:none}
+.compartilhar{display:flex;gap:8px;flex-wrap:wrap}
+.btn{font:600 14px system-ui,sans-serif;padding:10px 14px;min-height:44px;display:inline-flex;align-items:center;border-radius:999px;border:1.5px solid var(--tinta);background:var(--branco);color:var(--tinta);text-decoration:none;cursor:pointer}
+.btn:hover{background:var(--papel);color:var(--tinta)}
+.btn-whats{background:var(--tinta);color:var(--branco)}
+.btn-whats:hover{background:#3b3832;color:var(--branco)}
+.mais{font-weight:600;font-size:15px}
+.frase-unica{background:var(--branco);border-radius:12px;padding:18px;display:flex;flex-direction:column;gap:16px}
+.frase-unica .frase-img{max-width:520px}
+.caixa{background:var(--branco);border-radius:12px;padding:18px}
+.caixa h2,.relacionadas h2{font-size:19px;margin:0 0 12px}
+.lista-cats{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.lista-cats li{display:flex;justify-content:space-between}
+.lista-cats span{color:var(--suave);font-size:14px}
+.destaques,.grade{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.grade{grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
+.paginacao{display:flex;gap:8px;flex-wrap:wrap}
+.paginacao a,.paginacao span{min-width:44px;min-height:44px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;background:var(--branco);text-decoration:none;font-weight:600}
+.paginacao span{background:var(--tinta);color:var(--branco)}
+.anuncio{display:flex;justify-content:center;margin:0 auto;max-width:100%;overflow:hidden}
+.anuncio-topo{padding:16px 16px 0}
+.rodape{border-top:1px solid var(--linha);padding:24px 16px;text-align:center;color:var(--suave);font-size:14px}
+.texto{max-width:760px}
+.texto h2{font-size:20px;margin:16px 0 0}
+@media (max-width:640px){.cartao-img{flex-basis:100%}.topo-linha{gap:12px}.categorias{justify-content:flex-start}}

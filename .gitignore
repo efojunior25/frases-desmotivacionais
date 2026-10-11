@@ -1,0 +1,3 @@
+dist/
+.cache-img/
+__pycache__/
