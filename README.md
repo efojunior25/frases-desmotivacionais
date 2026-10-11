@@ -15,7 +15,7 @@ Site estático (sem backend) gerado por `build.py` e publicado no Cloudflare Pag
     python3 -m http.server -d dist 8000
 
 ## Cloudflare (Workers)
-- Build command: `python3 build.py`
+- Build command: pode ficar vazio (o `wrangler.jsonc` já roda `python3 build.py`)
 - Deploy command: `npx wrangler deploy`
 - O Cloudflare instala o `requirements.txt` sozinho e o `wrangler.jsonc` publica a pasta `dist`.
 
