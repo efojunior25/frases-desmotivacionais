@@ -1,0 +1,15 @@
+{
+  "nome": "Frases Desmotivacionais",
+  "url": "https://frasesdesmotivacionais.com.br",
+  "descricao": "Frases desmotivacionais em imagens para acabar com o seu dia e compartilhar no grupo da família.",
+  "email_contato": "contato@frasesdesmotivacionais.com.br",
+  "frases_por_pagina": 10,
+  "cloudflare_analytics_token": "",
+  "anuncios": {
+    "cabecalho_html": "",
+    "topo": "",
+    "lateral": "",
+    "entre_frases": "",
+    "rodape": ""
+  }
+}
