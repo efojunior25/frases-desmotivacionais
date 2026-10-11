@@ -1,53 +1,837 @@
 {
   "categorias": [
-    {"slug": "segunda-feira", "nome": "Segunda-feira", "descricao": "Frases desmotivacionais para começar a semana do jeito que ela merece: mal."},
-    {"slug": "trabalho", "nome": "Trabalho", "descricao": "Frases desmotivacionais sobre trabalho, chefe e salário para mandar no grupo da firma."},
-    {"slug": "amor", "nome": "Amor", "descricao": "Frases desmotivacionais de amor para quem desistiu de procurar alguém especial."},
-    {"slug": "academia", "nome": "Academia", "descricao": "Frases desmotivacionais de academia para quem pagou o plano anual e foi duas vezes."},
-    {"slug": "dinheiro", "nome": "Dinheiro", "descricao": "Frases desmotivacionais sobre dinheiro, boletos e o fim do mês que chega no dia 5."},
-    {"slug": "estudos", "nome": "Estudos", "descricao": "Frases desmotivacionais para estudantes, concurseiros e quem tem prova amanhã."},
-    {"slug": "vida-adulta", "nome": "Vida adulta", "descricao": "Frases desmotivacionais sobre a vida adulta, que ninguém avisou que seria assim."}
+    {
+      "slug": "segunda-feira",
+      "nome": "Segunda-feira",
+      "descricao": "Frases desmotivacionais para começar a semana do jeito que ela merece: mal."
+    },
+    {
+      "slug": "trabalho",
+      "nome": "Trabalho",
+      "descricao": "Frases desmotivacionais sobre trabalho, chefe e salário para mandar no grupo da firma."
+    },
+    {
+      "slug": "amor",
+      "nome": "Amor",
+      "descricao": "Frases desmotivacionais de amor para quem desistiu de procurar alguém especial."
+    },
+    {
+      "slug": "academia",
+      "nome": "Academia",
+      "descricao": "Frases desmotivacionais de academia para quem pagou o plano anual e foi duas vezes."
+    },
+    {
+      "slug": "dinheiro",
+      "nome": "Dinheiro",
+      "descricao": "Frases desmotivacionais sobre dinheiro, boletos e o fim do mês que chega no dia 5."
+    },
+    {
+      "slug": "estudos",
+      "nome": "Estudos",
+      "descricao": "Frases desmotivacionais para estudantes, concurseiros e quem tem prova amanhã."
+    },
+    {
+      "slug": "vida-adulta",
+      "nome": "Vida adulta",
+      "descricao": "Frases desmotivacionais sobre a vida adulta, que ninguém avisou que seria assim."
+    },
+    {
+      "slug": "familia",
+      "nome": "Família",
+      "descricao": "Frases desmotivacionais sobre família, almoço de domingo e o grupo do WhatsApp que nunca para."
+    },
+    {
+      "slug": "internet",
+      "nome": "Internet",
+      "descricao": "Frases desmotivacionais sobre redes sociais, curtidas que não vêm e o algoritmo que te ignora."
+    }
   ],
   "frases": [
-    {"texto": "Acorde cedo. Assim o dia ruim dura mais.", "categoria": "segunda-feira", "destaque": true},
-    {"texto": "Hoje é segunda. Amanhã também vai parecer.", "categoria": "segunda-feira"},
-    {"texto": "Desista dos seus sonhos e volte a dormir.", "categoria": "segunda-feira", "destaque": true},
-    {"texto": "A semana tem cinco dias úteis. Você não vai ser útil em nenhum.", "categoria": "segunda-feira"},
-    {"texto": "O problema da segunda-feira é que depois vem a terça.", "categoria": "segunda-feira"},
-    {"texto": "O sucesso está logo ali. Pena que você está indo para o outro lado.", "categoria": "trabalho", "destaque": true},
-    {"texto": "Trabalhe enquanto eles dormem. Assim você fica com o sono e eles com o dinheiro.", "categoria": "trabalho"},
-    {"texto": "Vista a camisa da empresa. Ela não vai vestir a sua.", "categoria": "trabalho"},
-    {"texto": "Seu chefe acredita em você. Acredita que você aguenta mais.", "categoria": "trabalho"},
-    {"texto": "O salário cai. Você também.", "categoria": "trabalho"},
-    {"texto": "Seu ex está melhor.", "categoria": "amor", "destaque": true},
-    {"texto": "Existe alguém especial esperando por você. Esperando você desistir.", "categoria": "amor"},
-    {"texto": "O amor está no ar. Por isso você não alcança.", "categoria": "amor"},
-    {"texto": "A pessoa certa vai aparecer. Para outra pessoa.", "categoria": "amor"},
-    {"texto": "Ninguém é de ninguém. Principalmente você.", "categoria": "amor"},
-    {"texto": "Toda grande jornada começa com um passo. E termina no sofá.", "categoria": "academia", "destaque": true},
-    {"texto": "Sem dor, sem ganho. Com dor, também sem ganho.", "categoria": "academia"},
-    {"texto": "O shape dos sonhos continua nos sonhos.", "categoria": "academia"},
-    {"texto": "Você pagou o plano anual. A academia agradece a doação.", "categoria": "academia"},
-    {"texto": "Foco, força e fé. Faltou todo o resto.", "categoria": "academia"},
-    {"texto": "O dinheiro não traz felicidade. Mas você nem tem dinheiro.", "categoria": "dinheiro", "destaque": true},
-    {"texto": "Poupe hoje para não ter nada amanhã também.", "categoria": "dinheiro"},
-    {"texto": "Sua conta bancária é igual ao seu humor: sempre no vermelho.", "categoria": "dinheiro"},
-    {"texto": "Rico de espírito. Pobre de todo o resto.", "categoria": "dinheiro"},
-    {"texto": "O mês tem 30 dias. O seu salário dura 5.", "categoria": "dinheiro"},
-    {"texto": "Não deixe para amanhã o que você pode não fazer hoje.", "categoria": "estudos", "destaque": true},
-    {"texto": "Estude muito e um dia você vai ter um chefe estudado.", "categoria": "estudos"},
-    {"texto": "O conhecimento liberta. Pena que a prova é amanhã.", "categoria": "estudos"},
-    {"texto": "Quem estuda sempre alcança. Alcança o boleto da faculdade.", "categoria": "estudos"},
-    {"texto": "Sua nota não te define. Mas te reprova.", "categoria": "estudos"},
-    {"texto": "Se a vida te der limões, provavelmente estão podres.", "categoria": "vida-adulta", "destaque": true},
-    {"texto": "Nunca é tarde para desistir.", "categoria": "vida-adulta", "destaque": true},
-    {"texto": "Sorria! Amanhã pode ser pior.", "categoria": "vida-adulta"},
-    {"texto": "Você não é todo mundo. Todo mundo está indo melhor.", "categoria": "vida-adulta"},
-    {"texto": "Acredite em você. Alguém tem que cometer esse erro.", "categoria": "vida-adulta", "destaque": true},
-    {"texto": "A luz no fim do túnel é o trem.", "categoria": "vida-adulta"},
-    {"texto": "O copo não está meio cheio nem meio vazio. Alguém bebeu.", "categoria": "vida-adulta"},
-    {"texto": "Tudo vai dar certo. Só não para você.", "categoria": "vida-adulta"},
-    {"texto": "Quem espera sempre alcança. A velhice.", "categoria": "vida-adulta"},
-    {"texto": "Seja a mudança que você quer ver no mundo. O mundo não vai notar.", "categoria": "vida-adulta"}
+    {
+      "texto": "Acorde cedo. Assim o dia ruim dura mais.",
+      "categoria": "segunda-feira",
+      "destaque": true
+    },
+    {
+      "texto": "Hoje é segunda. Amanhã também vai parecer.",
+      "categoria": "segunda-feira"
+    },
+    {
+      "texto": "Desista dos seus sonhos e volte a dormir.",
+      "categoria": "segunda-feira",
+      "destaque": true
+    },
+    {
+      "texto": "A semana tem cinco dias úteis. Você não vai ser útil em nenhum.",
+      "categoria": "segunda-feira"
+    },
+    {
+      "texto": "O problema da segunda-feira é que depois vem a terça.",
+      "categoria": "segunda-feira"
+    },
+    {
+      "texto": "O sucesso está logo ali. Pena que você está indo para o outro lado.",
+      "categoria": "trabalho",
+      "destaque": true
+    },
+    {
+      "texto": "Trabalhe enquanto eles dormem. Assim você fica com o sono e eles com o dinheiro.",
+      "categoria": "trabalho"
+    },
+    {
+      "texto": "Vista a camisa da empresa. Ela não vai vestir a sua.",
+      "categoria": "trabalho"
+    },
+    {
+      "texto": "Seu chefe acredita em você. Acredita que você aguenta mais.",
+      "categoria": "trabalho"
+    },
+    {
+      "texto": "O salário cai. Você também.",
+      "categoria": "trabalho"
+    },
+    {
+      "texto": "Seu ex está melhor.",
+      "categoria": "amor",
+      "destaque": true
+    },
+    {
+      "texto": "Existe alguém especial esperando por você. Esperando você desistir.",
+      "categoria": "amor"
+    },
+    {
+      "texto": "O amor está no ar. Por isso você não alcança.",
+      "categoria": "amor"
+    },
+    {
+      "texto": "A pessoa certa vai aparecer. Para outra pessoa.",
+      "categoria": "amor"
+    },
+    {
+      "texto": "Ninguém é de ninguém. Principalmente você.",
+      "categoria": "amor"
+    },
+    {
+      "texto": "Toda grande jornada começa com um passo. E termina no sofá.",
+      "categoria": "academia",
+      "destaque": true
+    },
+    {
+      "texto": "Sem dor, sem ganho. Com dor, também sem ganho.",
+      "categoria": "academia"
+    },
+    {
+      "texto": "O shape dos sonhos continua nos sonhos.",
+      "categoria": "academia"
+    },
+    {
+      "texto": "Você pagou o plano anual. A academia agradece a doação.",
+      "categoria": "academia"
+    },
+    {
+      "texto": "Foco, força e fé. Faltou todo o resto.",
+      "categoria": "academia"
+    },
+    {
+      "texto": "O dinheiro não traz felicidade. Mas você nem tem dinheiro.",
+      "categoria": "dinheiro",
+      "destaque": true
+    },
+    {
+      "texto": "Poupe hoje para não ter nada amanhã também.",
+      "categoria": "dinheiro"
+    },
+    {
+      "texto": "Sua conta bancária é igual ao seu humor: sempre no vermelho.",
+      "categoria": "dinheiro"
+    },
+    {
+      "texto": "Rico de espírito. Pobre de todo o resto.",
+      "categoria": "dinheiro"
+    },
+    {
+      "texto": "O mês tem 30 dias. O seu salário dura 5.",
+      "categoria": "dinheiro"
+    },
+    {
+      "texto": "Não deixe para amanhã o que você pode não fazer hoje.",
+      "categoria": "estudos",
+      "destaque": true
+    },
+    {
+      "texto": "Estude muito e um dia você vai ter um chefe estudado.",
+      "categoria": "estudos"
+    },
+    {
+      "texto": "O conhecimento liberta. Pena que a prova é amanhã.",
+      "categoria": "estudos"
+    },
+    {
+      "texto": "Quem estuda sempre alcança. Alcança o boleto da faculdade.",
+      "categoria": "estudos"
+    },
+    {
+      "texto": "Sua nota não te define. Mas te reprova.",
+      "categoria": "estudos"
+    },
+    {
+      "texto": "Se a vida te der limões, provavelmente estão podres.",
+      "categoria": "vida-adulta",
+      "destaque": true
+    },
+    {
+      "texto": "Nunca é tarde para desistir.",
+      "categoria": "vida-adulta",
+      "destaque": true
+    },
+    {
+      "texto": "Sorria! Amanhã pode ser pior.",
+      "categoria": "vida-adulta"
+    },
+    {
+      "texto": "Você não é todo mundo. Todo mundo está indo melhor.",
+      "categoria": "vida-adulta"
+    },
+    {
+      "texto": "Acredite em você. Alguém tem que cometer esse erro.",
+      "categoria": "vida-adulta",
+      "destaque": true
+    },
+    {
+      "texto": "A luz no fim do túnel é o trem.",
+      "categoria": "vida-adulta"
+    },
+    {
+      "texto": "O copo não está meio cheio nem meio vazio. Alguém bebeu.",
+      "categoria": "vida-adulta"
+    },
+    {
+      "texto": "Tudo vai dar certo. Só não para você.",
+      "categoria": "vida-adulta"
+    },
+    {
+      "texto": "Quem espera sempre alcança. A velhice.",
+      "categoria": "vida-adulta"
+    },
+    {
+      "texto": "Seja a mudança que você quer ver no mundo. O mundo não vai notar.",
+      "categoria": "vida-adulta"
+    },
+    {
+      "texto": "Bom dia. Só que não.",
+      "categoria": "segunda-feira"
+    },
+    {
+      "texto": "O fim de semana acabou. Assim como a sua paciência.",
+      "categoria": "segunda-feira"
+    },
+    {
+      "texto": "Segunda-feira: o dia oficial de se arrepender de ter acordado.",
+      "categoria": "segunda-feira"
+    },
+    {
+      "texto": "Começou a semana. A sua disposição ficou no domingo.",
+      "categoria": "segunda-feira"
+    },
+    {
+      "texto": "A segunda chegou e trouxe a terça como reforço.",
+      "categoria": "segunda-feira"
+    },
+    {
+      "texto": "Se o despertador tocou, é porque o pesadelo começou.",
+      "categoria": "segunda-feira"
+    },
+    {
+      "texto": "Toda segunda é uma nova chance de fracassar de novo.",
+      "categoria": "segunda-feira"
+    },
+    {
+      "texto": "Café não resolve. Mas finge muito bem.",
+      "categoria": "segunda-feira"
+    },
+    {
+      "texto": "Faltam só quatro dias pra sexta. E uma vida inteira pra aposentadoria.",
+      "categoria": "segunda-feira"
+    },
+    {
+      "texto": "Hoje é segunda e os seus problemas também voltaram do fim de semana.",
+      "categoria": "segunda-feira"
+    },
+    {
+      "texto": "Levante e brilhe. Ou só levante, já está bom demais.",
+      "categoria": "segunda-feira"
+    },
+    {
+      "texto": "A semana começou e você já está atrasado.",
+      "categoria": "segunda-feira"
+    },
+    {
+      "texto": "O domingo passou rápido. A segunda vai durar uns três dias.",
+      "categoria": "segunda-feira"
+    },
+    {
+      "texto": "Planeje a semana. Assim você sabe exatamente o que não vai fazer.",
+      "categoria": "segunda-feira"
+    },
+    {
+      "texto": "Segunda-feira é igual boleto: sempre chega.",
+      "categoria": "segunda-feira"
+    },
+    {
+      "texto": "Acordar cedo é bom pra quem tem motivo. Você só tem conta.",
+      "categoria": "segunda-feira"
+    },
+    {
+      "texto": "Hoje é um novo dia. Com os mesmos problemas de ontem.",
+      "categoria": "segunda-feira"
+    },
+    {
+      "texto": "O seu humor de segunda é medido em graus abaixo de zero.",
+      "categoria": "segunda-feira"
+    },
+    {
+      "texto": "Faça o que você ama e nunca mais vai amar nada.",
+      "categoria": "trabalho"
+    },
+    {
+      "texto": "Dê o seu melhor. O seu chefe vai pedir mais.",
+      "categoria": "trabalho"
+    },
+    {
+      "texto": "Hora extra: a arte de trabalhar mais pra continuar pobre.",
+      "categoria": "trabalho"
+    },
+    {
+      "texto": "Sua carreira está decolando. Pena que é um avião de papel.",
+      "categoria": "trabalho"
+    },
+    {
+      "texto": "A empresa é uma família. E família ninguém escolhe.",
+      "categoria": "trabalho"
+    },
+    {
+      "texto": "Fazer reunião que podia ser e-mail é o seu talento natural.",
+      "categoria": "trabalho"
+    },
+    {
+      "texto": "Você é insubstituível. Até aparecer alguém mais barato.",
+      "categoria": "trabalho"
+    },
+    {
+      "texto": "O plano de carreira da empresa é você continuar onde está.",
+      "categoria": "trabalho"
+    },
+    {
+      "texto": "Trabalho em equipe: todo mundo erra junto.",
+      "categoria": "trabalho"
+    },
+    {
+      "texto": "O seu esforço será reconhecido. No discurso de despedida.",
+      "categoria": "trabalho"
+    },
+    {
+      "texto": "Sexta-feira existe pra lembrar que a segunda volta.",
+      "categoria": "trabalho"
+    },
+    {
+      "texto": "Promoção só tem no supermercado.",
+      "categoria": "trabalho"
+    },
+    {
+      "texto": "O aumento vem. Junto com mais tarefas.",
+      "categoria": "trabalho"
+    },
+    {
+      "texto": "Mais um dia de trabalho, menos um dia de vida.",
+      "categoria": "trabalho"
+    },
+    {
+      "texto": "Você não está cansado. Está trabalhando.",
+      "categoria": "trabalho"
+    },
+    {
+      "texto": "Pense fora da caixa. Dentro dela não tem salário mesmo.",
+      "categoria": "trabalho"
+    },
+    {
+      "texto": "Seja proativo: faça o trabalho dos outros sem ganhar a mais.",
+      "categoria": "trabalho"
+    },
+    {
+      "texto": "As férias estão chegando. Daqui a onze meses.",
+      "categoria": "trabalho"
+    },
+    {
+      "texto": "O seu chefe diz que a porta está sempre aberta. É a da rua.",
+      "categoria": "trabalho"
+    },
+    {
+      "texto": "Feedback positivo é quando ninguém reclamou hoje.",
+      "categoria": "trabalho"
+    },
+    {
+      "texto": "O amor é cego. Por isso escolheu você.",
+      "categoria": "amor"
+    },
+    {
+      "texto": "Você não é difícil de amar. É impossível.",
+      "categoria": "amor"
+    },
+    {
+      "texto": "Quem ama cuida. Quem é cuidado some.",
+      "categoria": "amor"
+    },
+    {
+      "texto": "O amor da sua vida está por aí. Com outra pessoa.",
+      "categoria": "amor"
+    },
+    {
+      "texto": "Pra toda panela existe uma tampa. A sua quebrou.",
+      "categoria": "amor"
+    },
+    {
+      "texto": "Visualizou e não respondeu. Isso também é uma resposta.",
+      "categoria": "amor"
+    },
+    {
+      "texto": "Ninguém te merece. Graças a Deus.",
+      "categoria": "amor"
+    },
+    {
+      "texto": "Deu match. Até ele ver a sua foto de perto.",
+      "categoria": "amor"
+    },
+    {
+      "texto": "O seu crush pensa em você. Quando precisa de um favor.",
+      "categoria": "amor"
+    },
+    {
+      "texto": "Relacionamento sério, só o seu com o sofá.",
+      "categoria": "amor"
+    },
+    {
+      "texto": "Você foi o amor da vida dele. Por três semanas.",
+      "categoria": "amor"
+    },
+    {
+      "texto": "Quem procura acha. Acha outra pessoa.",
+      "categoria": "amor"
+    },
+    {
+      "texto": "O amor é paciente. O seu já desistiu.",
+      "categoria": "amor"
+    },
+    {
+      "texto": "Ele vai voltar. Pra buscar as coisas dele.",
+      "categoria": "amor"
+    },
+    {
+      "texto": "Solteiro por opção. Não a sua.",
+      "categoria": "amor"
+    },
+    {
+      "texto": "Ame a si mesmo. Alguém precisa fazer isso.",
+      "categoria": "amor"
+    },
+    {
+      "texto": "Felizes para sempre dura até a primeira fatura conjunta.",
+      "categoria": "amor"
+    },
+    {
+      "texto": "Você é a pessoa certa. Na hora errada. Pra sempre.",
+      "categoria": "amor"
+    },
+    {
+      "texto": "Amanhã eu começo. Disse você pela centésima vez.",
+      "categoria": "academia"
+    },
+    {
+      "texto": "O verão está chegando. O seu corpo de verão, não.",
+      "categoria": "academia"
+    },
+    {
+      "texto": "A balança não mente. Mas você queria que mentisse.",
+      "categoria": "academia"
+    },
+    {
+      "texto": "A dieta começa segunda. Qual segunda, ninguém sabe.",
+      "categoria": "academia"
+    },
+    {
+      "texto": "Correr faz bem. Pena que você só corre atrás do ônibus.",
+      "categoria": "academia"
+    },
+    {
+      "texto": "O espelho da academia está do seu lado. Pena que mostra a verdade.",
+      "categoria": "academia"
+    },
+    {
+      "texto": "O seu personal te motiva. Por cento e cinquenta reais a hora.",
+      "categoria": "academia"
+    },
+    {
+      "texto": "O corpo é um templo. O seu está em reforma eterna.",
+      "categoria": "academia"
+    },
+    {
+      "texto": "Você queima calorias só de pensar em ir pra academia.",
+      "categoria": "academia"
+    },
+    {
+      "texto": "Músculo se constrói com o tempo. Barriga também.",
+      "categoria": "academia"
+    },
+    {
+      "texto": "O projeto verão virou projeto ano que vem.",
+      "categoria": "academia"
+    },
+    {
+      "texto": "Água, salada e disciplina. Você tem a água.",
+      "categoria": "academia"
+    },
+    {
+      "texto": "O esforço vale a pena. A pizza vale mais.",
+      "categoria": "academia"
+    },
+    {
+      "texto": "Dez minutos de esteira e uma foto pro story.",
+      "categoria": "academia"
+    },
+    {
+      "texto": "Você não desistiu da academia. Só está pagando sem ir.",
+      "categoria": "academia"
+    },
+    {
+      "texto": "No pain, no gain. No gym, no pain. Escolha fácil.",
+      "categoria": "academia"
+    },
+    {
+      "texto": "O dinheiro não aceita desaforo. Por isso foge de você.",
+      "categoria": "dinheiro"
+    },
+    {
+      "texto": "Você trabalha pra pagar a conta. E a conta trabalha contra você.",
+      "categoria": "dinheiro"
+    },
+    {
+      "texto": "Investir em você é importante. Pena que você não dá lucro.",
+      "categoria": "dinheiro"
+    },
+    {
+      "texto": "O Pix caiu. Na conta de outra pessoa.",
+      "categoria": "dinheiro"
+    },
+    {
+      "texto": "O seu cartão de crédito te conhece melhor do que ninguém.",
+      "categoria": "dinheiro"
+    },
+    {
+      "texto": "Economizar é guardar dinheiro. Você guarda boleto.",
+      "categoria": "dinheiro"
+    },
+    {
+      "texto": "Ficar rico é questão de mentalidade. E de herança.",
+      "categoria": "dinheiro"
+    },
+    {
+      "texto": "Juntar dinheiro é fácil. Difícil é ter dinheiro pra juntar.",
+      "categoria": "dinheiro"
+    },
+    {
+      "texto": "A sorte bateu à porta. Você não estava, estava trabalhando.",
+      "categoria": "dinheiro"
+    },
+    {
+      "texto": "Faça o seu dinheiro trabalhar por você. Ele também pediu demissão.",
+      "categoria": "dinheiro"
+    },
+    {
+      "texto": "O limite do cartão é o limite da sua dignidade.",
+      "categoria": "dinheiro"
+    },
+    {
+      "texto": "Ficar rico dormindo, só no sonho mesmo.",
+      "categoria": "dinheiro"
+    },
+    {
+      "texto": "A inflação subiu. O seu salário assistiu.",
+      "categoria": "dinheiro"
+    },
+    {
+      "texto": "Dinheiro não dá em árvore. Nem na sua conta.",
+      "categoria": "dinheiro"
+    },
+    {
+      "texto": "O seu extrato bancário é um filme de terror com final previsível.",
+      "categoria": "dinheiro"
+    },
+    {
+      "texto": "O salário cai na conta e sai correndo.",
+      "categoria": "dinheiro"
+    },
+    {
+      "texto": "Você não é pobre. Está temporariamente quebrado há trinta anos.",
+      "categoria": "dinheiro"
+    },
+    {
+      "texto": "Comprar à vista é pra quem enxerga dinheiro.",
+      "categoria": "dinheiro"
+    },
+    {
+      "texto": "O futuro pertence a quem estuda. O presente, a quem colou.",
+      "categoria": "estudos"
+    },
+    {
+      "texto": "Você estudou a matéria toda. A prova não.",
+      "categoria": "estudos"
+    },
+    {
+      "texto": "Faculdade é o lugar onde você paga pra ficar ansioso.",
+      "categoria": "estudos"
+    },
+    {
+      "texto": "Diploma na parede, carteira vazia.",
+      "categoria": "estudos"
+    },
+    {
+      "texto": "Estudar é investir no futuro. O retorno ainda não chegou.",
+      "categoria": "estudos"
+    },
+    {
+      "texto": "Trabalho em grupo: um faz e quatro assinam.",
+      "categoria": "estudos"
+    },
+    {
+      "texto": "Você leu o texto todo. Pena que era o errado.",
+      "categoria": "estudos"
+    },
+    {
+      "texto": "A esperança é a última que morre. A sua nota morreu antes.",
+      "categoria": "estudos"
+    },
+    {
+      "texto": "Revisar a matéria na véspera é um estilo de vida.",
+      "categoria": "estudos"
+    },
+    {
+      "texto": "O concurso tem três vagas. E você.",
+      "categoria": "estudos"
+    },
+    {
+      "texto": "O seu TCC está quase pronto. Só falta começar.",
+      "categoria": "estudos"
+    },
+    {
+      "texto": "Quem não estuda também passa. Passa vergonha.",
+      "categoria": "estudos"
+    },
+    {
+      "texto": "A média é seis. A sua vida é cinco vírgula nove.",
+      "categoria": "estudos"
+    },
+    {
+      "texto": "O professor disse que a prova ia ser fácil. Ele mentiu.",
+      "categoria": "estudos"
+    },
+    {
+      "texto": "Você aprendeu muito na faculdade. Principalmente a dormir sentado.",
+      "categoria": "estudos"
+    },
+    {
+      "texto": "Estude enquanto eles dormem. E reprove enquanto eles passam.",
+      "categoria": "estudos"
+    },
+    {
+      "texto": "Ser adulto é ter dor nas costas sem nenhum motivo.",
+      "categoria": "vida-adulta"
+    },
+    {
+      "texto": "Os seus sonhos de criança viraram boletos de adulto.",
+      "categoria": "vida-adulta"
+    },
+    {
+      "texto": "Você queria mudar o mundo. Hoje quer só mudar de emprego.",
+      "categoria": "vida-adulta"
+    },
+    {
+      "texto": "Todo mundo tem um plano. Até a vida acontecer.",
+      "categoria": "vida-adulta"
+    },
+    {
+      "texto": "Os anos passam e você continua igual. Mais velho, mas igual.",
+      "categoria": "vida-adulta"
+    },
+    {
+      "texto": "Depois da tempestade vem a enchente.",
+      "categoria": "vida-adulta"
+    },
+    {
+      "texto": "Cada dia é uma nova oportunidade de dar errado.",
+      "categoria": "vida-adulta"
+    },
+    {
+      "texto": "A vida é curta. Mas as filas são longas.",
+      "categoria": "vida-adulta"
+    },
+    {
+      "texto": "O tempo cura tudo. Menos você.",
+      "categoria": "vida-adulta"
+    },
+    {
+      "texto": "Nada é por acaso. Tem gente que é azarada mesmo.",
+      "categoria": "vida-adulta"
+    },
+    {
+      "texto": "O mundo dá voltas. E você continua tonto.",
+      "categoria": "vida-adulta"
+    },
+    {
+      "texto": "Não existe idade pra aprender. Existe idade pra cansar.",
+      "categoria": "vida-adulta"
+    },
+    {
+      "texto": "Pense positivo. Assim a decepção é maior.",
+      "categoria": "vida-adulta"
+    },
+    {
+      "texto": "A felicidade está nas pequenas coisas. Como o seu salário.",
+      "categoria": "vida-adulta"
+    },
+    {
+      "texto": "Seja grato pelo que você tem. Não vai durar muito.",
+      "categoria": "vida-adulta"
+    },
+    {
+      "texto": "Você não precisa da aprovação de ninguém. Ainda bem, porque não tem.",
+      "categoria": "vida-adulta"
+    },
+    {
+      "texto": "Você é a média das cinco pessoas com quem mais convive. Sinto muito.",
+      "categoria": "vida-adulta"
+    },
+    {
+      "texto": "O melhor ainda está por vir. Mas não vem pra você.",
+      "categoria": "vida-adulta"
+    },
+    {
+      "texto": "A vida é uma caixinha de surpresas. Todas ruins.",
+      "categoria": "vida-adulta"
+    },
+    {
+      "texto": "Siga o seu coração. Ele também não sabe pra onde vai.",
+      "categoria": "vida-adulta"
+    },
+    {
+      "texto": "Família unida é aquela que briga no mesmo grupo de WhatsApp.",
+      "categoria": "familia"
+    },
+    {
+      "texto": "Natal em família: a prova de que a paciência acaba.",
+      "categoria": "familia"
+    },
+    {
+      "texto": "A sua mãe tinha razão. E ela nunca vai deixar você esquecer.",
+      "categoria": "familia"
+    },
+    {
+      "texto": "Você é o orgulho da família. Da família do vizinho.",
+      "categoria": "familia"
+    },
+    {
+      "texto": "Visita de parente chega sem avisar e vai embora sem previsão.",
+      "categoria": "familia"
+    },
+    {
+      "texto": "No almoço de domingo perguntam do namoro e do emprego. Você não tem nenhum dos dois.",
+      "categoria": "familia"
+    },
+    {
+      "texto": "O seu tio entende de tudo. E erra tudo também.",
+      "categoria": "familia"
+    },
+    {
+      "texto": "Família é tudo. Tudo o que você não escolheu.",
+      "categoria": "familia"
+    },
+    {
+      "texto": "A herança da família são os problemas.",
+      "categoria": "familia"
+    },
+    {
+      "texto": "A sua avó acha você lindo. Ela também não enxerga direito.",
+      "categoria": "familia"
+    },
+    {
+      "texto": "Grupo da família: bom dia com figurinha e briga às nove da noite.",
+      "categoria": "familia"
+    },
+    {
+      "texto": "Os seus pais queriam um doutor. Ganharam você.",
+      "categoria": "familia"
+    },
+    {
+      "texto": "Filho de peixe, peixinho é. E continua sem dinheiro.",
+      "categoria": "familia"
+    },
+    {
+      "texto": "Casou? Parabéns, a sogra veio de brinde.",
+      "categoria": "familia"
+    },
+    {
+      "texto": "O seu post teve três curtidas. Uma foi sua.",
+      "categoria": "internet"
+    },
+    {
+      "texto": "Você não está sozinho. Tem dois mil seguidores te ignorando.",
+      "categoria": "internet"
+    },
+    {
+      "texto": "A internet caiu e você descobriu que não tem vida.",
+      "categoria": "internet"
+    },
+    {
+      "texto": "Ninguém te liga. Só mandam áudio de cinco minutos.",
+      "categoria": "internet"
+    },
+    {
+      "texto": "O seu story foi visto por todo mundo. Ninguém respondeu.",
+      "categoria": "internet"
+    },
+    {
+      "texto": "Um dia você viraliza. No vídeo de alguém rindo de você.",
+      "categoria": "internet"
+    },
+    {
+      "texto": "A bateria acaba sempre na hora que você mais precisa.",
+      "categoria": "internet"
+    },
+    {
+      "texto": "Seguir os sonhos é bom. Seguir os stories dos outros é mais fácil.",
+      "categoria": "internet"
+    },
+    {
+      "texto": "Felicidade é o que as pessoas postam. Realidade é o que você vive.",
+      "categoria": "internet"
+    },
+    {
+      "texto": "A senha precisa ter oito caracteres, um número e um pouco de esperança.",
+      "categoria": "internet"
+    },
+    {
+      "texto": "O seu feed é perfeito. A sua vida é a parte que ninguém vê.",
+      "categoria": "internet"
+    },
+    {
+      "texto": "O algoritmo te conhece. E mesmo assim não te recomenda.",
+      "categoria": "internet"
+    },
+    {
+      "texto": "O seu celular tem mais memória que você. E também trava.",
+      "categoria": "internet"
+    },
+    {
+      "texto": "Você postou pra mostrar que está bem. Ninguém perguntou.",
+      "categoria": "internet"
+    }
   ]
 }
