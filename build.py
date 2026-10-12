@@ -39,6 +39,7 @@ NOME = CONFIG["nome"]
 DOMINIO = re.sub(r"^https?://", "", URL)
 ANUNCIOS = CONFIG.get("anuncios", {})
 POR_PAGINA = int(CONFIG.get("frases_por_pagina", 10))
+ICONES = json.loads((RAIZ / "icones.json").read_text(encoding="utf-8"))
 
 
 def slugify(texto, limite=70):
@@ -126,7 +127,27 @@ def url_frase(f):
     return f"/frase/{f['slug']}/"
 
 
-def pagina(titulo, descricao, caminho, corpo, imagem=None, tipo="website", indexar=True):
+LOGO_SVG = (
+    '<svg class="logo-marca" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#E0B13A"/>'
+    '<path d="M20 46c4-6 20-6 24 0" stroke="#1E1C19" stroke-width="5" fill="none" stroke-linecap="round"/>'
+    '<circle cx="23" cy="27" r="4" fill="#1E1C19"/><circle cx="41" cy="27" r="4" fill="#1E1C19"/></svg>'
+)
+DADO_SVG = (
+    '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">'
+    '<rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="8.5" cy="8.5" r="1.2" fill="currentColor"/>'
+    '<circle cx="15.5" cy="15.5" r="1.2" fill="currentColor"/><circle cx="12" cy="12" r="1.2" fill="currentColor"/></svg>'
+)
+BAIXAR_SVG = (
+    '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">'
+    '<path d="M12 3v12M7 10l5 5 5-5M4 20h16"/></svg>'
+)
+
+
+def icone(nome):
+    return f'<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="{ICONES[nome]}"/></svg>'
+
+
+def pagina(titulo, descricao, caminho, corpo, imagem=None, tipo="website", indexar=True, ativo=None, destaque=""):
     canonica = URL + caminho
     og_img = imagem or f"{URL}/og-padrao.jpg"
     analytics = ""
@@ -135,8 +156,13 @@ def pagina(titulo, descricao, caminho, corpo, imagem=None, tipo="website", index
             '<script defer src="https://static.cloudflareinsights.com/beacon.min.js" '
             f'data-cf-beacon=\'{{"token": "{escape(CONFIG["cloudflare_analytics_token"])}"}}\'></script>'
         )
+    atual = ' aria-current="page"'
     menu = "".join(
-        f'<a href="/categoria/{c["slug"]}/">{escape(c["nome"])}</a>' for c in CATEGORIAS.values()
+        f'<a href="/categoria/{c["slug"]}/"{atual if c["slug"] == ativo else ""}>{escape(c["nome"])}</a>'
+        for c in CATEGORIAS.values()
+    )
+    cats_rodape = "".join(
+        f'<li><a href="/categoria/{c["slug"]}/">{escape(c["nome"])}</a></li>' for c in CATEGORIAS.values()
     )
     robots = "" if indexar else '<meta name="robots" content="noindex">'
     return f"""<!doctype html>
@@ -158,6 +184,7 @@ def pagina(titulo, descricao, caminho, corpo, imagem=None, tipo="website", index
 <meta property="og:image:height" content="1080">
 <meta property="og:locale" content="pt_BR">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#1E1C19">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preload" href="/fontes/ArchivoBlack-Regular.ttf" as="font" type="font/ttf" crossorigin>
 <link rel="stylesheet" href="/estilo.css">
@@ -166,23 +193,42 @@ def pagina(titulo, descricao, caminho, corpo, imagem=None, tipo="website", index
 <body>
 <header class="topo">
   <div class="topo-linha">
-    <a class="logo" href="/">{escape(NOME)}</a>
+    <a class="logo" href="/">{LOGO_SVG}<span class="logo-texto"><span class="logo-nome">{escape(NOME)}</span><span class="logo-lema">pra acabar com o seu dia</span></span></a>
     <form class="busca" action="/busca/" role="search">
       <label class="oculto" for="q">Buscar frases</label>
-      <input id="q" name="q" type="search" placeholder="Buscar frases desmotivacionais...">
+      <input id="q" name="q" type="search" placeholder="Buscar: chefe, ex, segunda...">
     </form>
-    <a class="aleatoria" href="/aleatoria/">Frase aleatória</a>
+    <a class="aleatoria" href="/aleatoria/">{DADO_SVG}<span>Frase aleatória</span></a>
   </div>
+  <nav class="categorias" aria-label="Categorias"><div class="categorias-linha">{menu}</div></nav>
 </header>
-<nav class="categorias" aria-label="Categorias">{menu}</nav>
+{destaque}
 {anuncio("topo", "anuncio-topo")}
 <div class="conteudo">
 {corpo}
 </div>
 <footer class="rodape">
   {anuncio("rodape", "anuncio-rodape")}
-  <p><a href="/sobre/">Sobre</a> · <a href="/contato/">Contato</a> · <a href="/politica-de-privacidade/">Política de privacidade</a></p>
-  <p>© {date.today().year} {escape(NOME)}. Humor, não leve a sério.</p>
+  <div class="rodape-linha">
+    <div class="rodape-marca">
+      <a class="logo" href="/">{LOGO_SVG}<span class="logo-nome">{escape(NOME)}</span></a>
+      <p>Frases desmotivacionais em imagens, prontas pra mandar no grupo da família. Humor, não leve a sério.</p>
+    </div>
+    <div>
+      <h2>Categorias</h2>
+      <ul class="rodape-lista">{cats_rodape}</ul>
+    </div>
+    <div>
+      <h2>O site</h2>
+      <ul class="rodape-lista">
+        <li><a href="/aleatoria/">Frase aleatória</a></li>
+        <li><a href="/sobre/">Sobre</a></li>
+        <li><a href="/contato/">Contato</a></li>
+        <li><a href="/politica-de-privacidade/">Política de privacidade</a></li>
+      </ul>
+    </div>
+  </div>
+  <p class="rodape-copy">© {date.today().year} {escape(NOME)}</p>
 </footer>
 <script src="/app.js" defer></script>
 {analytics}
@@ -191,18 +237,28 @@ def pagina(titulo, descricao, caminho, corpo, imagem=None, tipo="website", index
 """
 
 
-def botoes_compartilhar(f):
+def botoes_compartilhar(f, grande=False):
     link = URL + url_frase(f)
     texto = f"{f['texto']} {link}"
     img = f"{URL}/img/{f['slug']}.jpg"
-    return f"""<div class="compartilhar" data-link="{link}" data-img="/img/{f['slug']}.jpg" data-titulo="{escape(f['texto'])}">
-  <a class="btn btn-whats" href="https://wa.me/?text={quote(texto)}" target="_blank" rel="noopener">WhatsApp</a>
-  <a class="btn" href="https://www.facebook.com/sharer/sharer.php?u={quote(link)}" target="_blank" rel="noopener">Facebook</a>
-  <a class="btn" href="https://pinterest.com/pin/create/button/?url={quote(link)}&amp;media={quote(img)}&amp;description={quote(f['texto'])}" target="_blank" rel="noopener">Pinterest</a>
-  <a class="btn" href="https://twitter.com/intent/tweet?url={quote(link)}" target="_blank" rel="noopener">X</a>
-  <a class="btn" href="https://t.me/share/url?url={quote(link)}" target="_blank" rel="noopener">Telegram</a>
-  <button class="btn btn-nativo" type="button" hidden>Instagram e outros</button>
-  <a class="btn" href="/img/{f['slug']}.jpg" download="{f['slug']}.jpg">Baixar imagem</a>
+    redes = [
+        ("facebook", "Facebook", f"https://www.facebook.com/sharer/sharer.php?u={quote(link)}"),
+        ("pinterest", "Pinterest", f"https://pinterest.com/pin/create/button/?url={quote(link)}&amp;media={quote(img)}&amp;description={quote(f['texto'])}"),
+        ("x", "X", f"https://twitter.com/intent/tweet?url={quote(link)}"),
+        ("telegram", "Telegram", f"https://t.me/share/url?url={quote(link)}"),
+    ]
+    icones = "".join(
+        f'<a class="rede rede-{n}" href="{u}" target="_blank" rel="noopener" aria-label="Compartilhar no {r}" title="{r}">{icone(n)}</a>'
+        for n, r, u in redes
+    )
+    classe = "compartilhar compartilhar-grande" if grande else "compartilhar"
+    return f"""<div class="{classe}" data-link="{link}" data-img="/img/{f['slug']}.jpg" data-titulo="{escape(f['texto'])}">
+  <a class="btn btn-whats" href="https://wa.me/?text={quote(texto)}" target="_blank" rel="noopener">{icone("whatsapp")}<span>Enviar no WhatsApp</span></a>
+  <div class="redes">
+    {icones}
+    <button class="rede rede-instagram btn-nativo" type="button" hidden aria-label="Compartilhar no Instagram e outros apps" title="Instagram e outros">{icone("instagram")}</button>
+    <a class="rede rede-baixar" href="/img/{f['slug']}.jpg" download="{f['slug']}.jpg" aria-label="Baixar imagem" title="Baixar imagem">{BAIXAR_SVG}</a>
+  </div>
 </div>"""
 
 
@@ -221,16 +277,16 @@ def cartao(f):
     return f"""<article class="cartao">
   <a class="cartao-img" href="{url_frase(f)}">{imagem_frase(f)}</a>
   <div class="cartao-info">
-    <a class="rotulo" href="/categoria/{c['slug']}/">{escape(c['nome'])}</a>
+    <div class="cartao-topo"><a class="rotulo" href="/categoria/{c['slug']}/">{escape(c['nome'])}</a><span class="numero">nº {f['num']}</span></div>
     {botoes_compartilhar(f)}
-    <a class="mais" href="/categoria/{c['slug']}/">Ver mais frases de {escape(c['nome'].lower())}</a>
+    <a class="mais" href="/categoria/{c['slug']}/">Mais frases de {escape(c['nome'].lower())} →</a>
   </div>
 </article>"""
 
 
 def lateral():
     cats = "".join(
-        f'<li><a href="/categoria/{c["slug"]}/">{escape(c["nome"])}</a> <span>{len(c["frases"])}</span></li>'
+        f'<li><a href="/categoria/{c["slug"]}/"><span>{escape(c["nome"])}</span><span class="contagem">{len(c["frases"])}</span></a></li>'
         for c in CATEGORIAS.values()
     )
     dest = [f for f in FRASES if f.get("destaque")][:6]
@@ -270,7 +326,24 @@ def escrever(caminho, html):
     destino.write_text(html, encoding="utf-8")
 
 
-def gerar_listagem(base, titulo_h1, intro, frases, titulo_pag, descricao, migalha):
+def bloco_destaque():
+    f = next((x for x in FRASES if x.get("destaque")), FRASES[0])
+    return f"""<section class="destaque">
+  <div class="destaque-linha">
+    <a class="destaque-img" href="{url_frase(f)}">{imagem_frase(f)}</a>
+    <div class="destaque-texto">
+      <p class="sobretitulo">Frase em destaque</p>
+      <p class="destaque-chamada">{len(FRASES)} frases desmotivacionais pra mandar no grupo da família, no grupo da firma e pro seu ex.</p>
+      <div class="destaque-acoes">
+        <a class="btn btn-amarelo" href="/aleatoria/">{DADO_SVG}<span>Me desmotive de novo</span></a>
+        <a class="btn btn-contorno" href="{url_frase(f)}">Ver esta frase</a>
+      </div>
+    </div>
+  </div>
+</section>"""
+
+
+def gerar_listagem(base, titulo_h1, intro, frases, titulo_pag, descricao, migalha, ativo=None, com_destaque=False):
     total = max(1, math.ceil(len(frases) / POR_PAGINA))
     for n in range(1, total + 1):
         parte = frases[(n - 1) * POR_PAGINA:n * POR_PAGINA]
@@ -284,10 +357,11 @@ def gerar_listagem(base, titulo_h1, intro, frases, titulo_pag, descricao, migalh
   {paginacao(base, n, total)}
 </main>
 {lateral()}"""
-        escrever(caminho, pagina(titulo_pag + sufixo, descricao, caminho, corpo))
+        destaque = bloco_destaque() if com_destaque and n == 1 else ""
+        escrever(caminho, pagina(titulo_pag + sufixo, descricao, caminho, corpo, ativo=ativo, destaque=destaque))
 
 
-def gerar_frase(f):
+def gerar_frase(f, anterior, proxima):
     c = CATEGORIAS[f["categoria"]]
     rel = [x for x in c["frases"] if x["slug"] != f["slug"]][:4]
     relacionadas = "".join(f'<li><a href="{url_frase(x)}">{imagem_frase(x)}</a></li>' for x in rel)
@@ -296,7 +370,11 @@ def gerar_frase(f):
   <h1>Frase desmotivacional de {escape(c['nome'].lower())} nº {f['num']}</h1>
   <article class="frase-unica">
     {imagem_frase(f, grande=True)}
-    {botoes_compartilhar(f)}
+    {botoes_compartilhar(f, grande=True)}
+    <nav class="navega" aria-label="Outras frases">
+      <a class="btn btn-contorno" href="{url_frase(anterior)}" rel="prev">← Anterior</a>
+      <a class="btn btn-amarelo" href="{url_frase(proxima)}" rel="next">Próxima frase →</a>
+    </nav>
   </article>
   {anuncio("entre_frases", "anuncio-meio")}
   <section class="relacionadas"><h2>Mais frases de {escape(c['nome'].lower())}</h2><ul class="grade">{relacionadas}</ul></section>
@@ -304,7 +382,7 @@ def gerar_frase(f):
 {lateral()}"""
     titulo = f"{f['texto']} | {NOME}"
     descricao = f"Frase desmotivacional de {c['nome'].lower()}: {f['texto']} Baixe a imagem e compartilhe."
-    escrever(url_frase(f), pagina(titulo, descricao, url_frase(f), corpo, f"{URL}/img/{f['slug']}.jpg", "article"))
+    escrever(url_frase(f), pagina(titulo, descricao, url_frase(f), corpo, f"{URL}/img/{f['slug']}.jpg", "article", ativo=c["slug"]))
 
 
 def pagina_texto(caminho, titulo, html_corpo):
@@ -371,14 +449,14 @@ def main():
     gerar_listagem("/", "Frases desmotivacionais",
                    f"{len(FRASES)} frases para acabar com o seu dia. Escolha, baixe e mande no grupo da família.",
                    FRASES, f"Frases desmotivacionais engraçadas | {NOME}", CONFIG["descricao"],
-                   "Início")
+                   "Início", com_destaque=True)
     for c in CATEGORIAS.values():
         gerar_listagem(f"/categoria/{c['slug']}/", f"Frases desmotivacionais de {c['nome'].lower()}",
                        c["descricao"], c["frases"],
                        f"Frases desmotivacionais de {c['nome'].lower()} | {NOME}", c["descricao"],
-                       f'<a href="/">Início</a> › {escape(c["nome"])}')
-    for f in FRASES:
-        gerar_frase(f)
+                       f'<a href="/">Início</a> › {escape(c["nome"])}', ativo=c["slug"])
+    for i, f in enumerate(FRASES):
+        gerar_frase(f, FRASES[i - 1], FRASES[(i + 1) % len(FRASES)])
     gerar_institucionais()
     gerar_arquivos_extras()
     print(f"Pronto: {len(FRASES)} frases, {len(CATEGORIAS)} categorias em {DIST}")
