@@ -1,4 +1,32 @@
 (function () {
+  // Cookies: scripts de anúncio só rodam depois do "Aceitar"
+  var aviso = document.getElementById('aviso-cookies');
+  function guardado() { try { return localStorage.getItem('cookies'); } catch (e) { return null; } }
+  function guardar(v) { try { localStorage.setItem('cookies', v); } catch (e) {} }
+  function ativarAnuncios() {
+    document.querySelectorAll('script[data-anuncio]').forEach(function (velho) {
+      var novo = document.createElement('script');
+      Array.prototype.forEach.call(velho.attributes, function (a) {
+        if (a.name !== 'type' && a.name !== 'data-anuncio') novo.setAttribute(a.name, a.value);
+      });
+      novo.text = velho.text;
+      velho.parentNode.replaceChild(novo, velho);
+    });
+  }
+  if (guardado() === 'sim') ativarAnuncios();
+  else if (guardado() === null && aviso) aviso.hidden = false;
+  if (aviso) {
+    document.getElementById('cookies-aceitar').addEventListener('click', function () {
+      guardar('sim'); aviso.hidden = true; ativarAnuncios();
+    });
+    document.getElementById('cookies-recusar').addEventListener('click', function () {
+      guardar('nao'); aviso.hidden = true;
+    });
+    document.getElementById('gerenciar-cookies').addEventListener('click', function () {
+      aviso.hidden = false;
+    });
+  }
+
   // Dificulta copiar e arrastar as imagens das frases
   document.addEventListener('contextmenu', function (e) {
     if (e.target.closest('.frase-img')) e.preventDefault();

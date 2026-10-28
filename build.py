@@ -118,8 +118,13 @@ def gerar_imagem(frase, destino_jpg, destino_webp):
 
 # ---------- html ----------
 
+def protegido(codigo):
+    """Os scripts de anúncio só rodam depois que o visitante aceita os cookies (app.js ativa)."""
+    return re.sub(r"<script\b", '<script type="text/plain" data-anuncio', codigo)
+
+
 def anuncio(chave, classe):
-    codigo = ANUNCIOS.get(chave, "").strip()
+    codigo = protegido(ANUNCIOS.get(chave, "").strip())
     return f'<div class="anuncio {classe}">{codigo}</div>' if codigo else ""
 
 
@@ -188,7 +193,7 @@ def pagina(titulo, descricao, caminho, corpo, imagem=None, tipo="website", index
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preload" href="/fontes/ArchivoBlack-Regular.ttf" as="font" type="font/ttf" crossorigin>
 <link rel="stylesheet" href="/estilo.css">
-{ANUNCIOS.get("cabecalho_html", "")}
+{protegido(ANUNCIOS.get("cabecalho_html", ""))}
 </head>
 <body>
 <header class="topo">
@@ -225,11 +230,16 @@ def pagina(titulo, descricao, caminho, corpo, imagem=None, tipo="website", index
         <li><a href="/sobre/">Sobre</a></li>
         <li><a href="/contato/">Contato</a></li>
         <li><a href="/politica-de-privacidade/">Política de privacidade</a></li>
+        <li><button class="link" type="button" id="gerenciar-cookies">Gerenciar cookies</button></li>
       </ul>
     </div>
   </div>
   <p class="rodape-copy">© {date.today().year} {escape(NOME)}</p>
 </footer>
+<div class="cookies" id="aviso-cookies" role="dialog" aria-label="Aviso de cookies" hidden>
+  <p>Usamos cookies de empresas parceiras para exibir anúncios. Você aceita? Veja a <a href="/politica-de-privacidade/">política de privacidade</a>.</p>
+  <div class="cookies-botoes"><button type="button" id="cookies-recusar">Recusar</button><button type="button" class="aceitar" id="cookies-aceitar">Aceitar</button></div>
+</div>
 <script src="/app.js" defer></script>
 {analytics}
 </body>
@@ -418,7 +428,11 @@ def gerar_arquivos_extras():
     busca = [{"t": f["texto"], "u": url_frase(f), "i": f"/img/{f['slug']}-540.webp"} for f in FRASES]
     (DIST / "busca.json").write_text(json.dumps(busca, ensure_ascii=False), encoding="utf-8")
     hoje = date.today().isoformat()
-    urls = ["/"] + [f"/categoria/{c}/" for c in CATEGORIAS] + [url_frase(f) for f in FRASES] + ["/sobre/", "/contato/", "/politica-de-privacidade/"]
+    paginas = lambda base, qtd: [f"{base}pagina/{n}/" for n in range(2, math.ceil(qtd / POR_PAGINA) + 1)]
+    urls = ["/"] + paginas("/", len(FRASES)) + [f"/categoria/{c}/" for c in CATEGORIAS]
+    for c in CATEGORIAS.values():
+        urls += paginas(f"/categoria/{c['slug']}/", len(c["frases"]))
+    urls = urls + [url_frase(f) for f in FRASES] + ["/sobre/", "/contato/", "/politica-de-privacidade/"]
     itens = "".join(f"<url><loc>{URL}{u}</loc><lastmod>{hoje}</lastmod></url>" for u in urls)
     (DIST / "sitemap.xml").write_text(
         f'<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{itens}</urlset>',

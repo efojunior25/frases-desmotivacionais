@@ -115,7 +115,22 @@ h1{margin:0;font-size:clamp(28px,4vw,40px)}
 
 /* Anúncios */
 .anuncio{display:flex;justify-content:center;margin:0 auto;max-width:100%;overflow:hidden}
-.anuncio-topo{padding:16px 16px 0}
+.anuncio:empty{display:none}
+.anuncio-topo{padding:16px 16px 0;min-height:110px}
+.anuncio-meio{min-height:260px;margin:0 0 20px}
+.anuncio-lateral{min-height:260px;margin-bottom:20px}
+.anuncio-rodape{padding:16px;min-height:110px;background:var(--papel)}
+
+/* Aviso de cookies */
+.cookies{position:fixed;left:12px;right:12px;bottom:12px;z-index:50;max-width:720px;margin:0 auto;background:var(--tinta);color:var(--papel);border-radius:14px;padding:16px;box-shadow:0 8px 30px rgba(0,0,0,.3);display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.cookies[hidden]{display:none}
+.cookies p{margin:0;flex:1 1 300px;font-size:14px}
+.cookies a{color:var(--destaque)}
+.cookies-botoes{display:flex;gap:8px}
+.cookies button{min-height:44px;padding:0 18px;border-radius:10px;border:2px solid var(--destaque);font:700 14px system-ui,sans-serif;cursor:pointer;background:transparent;color:var(--papel)}
+.cookies button.aceitar{background:var(--destaque);color:var(--tinta)}
+.rodape button.link{background:none;border:0;padding:0;color:#E6E0D4;font:inherit;cursor:pointer}
+.rodape button.link:hover{color:var(--destaque)}
 
 /* Rodapé */
 .rodape{background:var(--tinta);color:#C9C2B4;margin-top:24px}
